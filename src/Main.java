@@ -2,18 +2,28 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/// Testare
 public class Main {
     public static void main(String[] args) {
-        creatingTableArt("articole");
-        creatingTableCat("categories");
-        creatingTableProd("producator");
-        creatingTableLogin("login");
-        insertDataArt("articole");
+      /// creatingTableArt("articole");
+      ///  creatingTableCat("categories");
+      ///  creatingTableProd("producator");
+      ///  creatingTableLogin("login");
+      ///  insertDataArt("articole");
+      ///  insertDataCat("categories");
+      ///  insertDataProd("producator");
+      ///  insertDataLogin("login");
+      ///  deleteDataArt("articole");
+      ///  deleteDataCat("categories");
+      ///  deleteDataProd("producator");
+      ///  deleteDataLogin("login");
+      /// editDataArt("articole");
+      /// editDataCat("categories");
+      /// editDataProd("producator");
     }
     public static void creatingTableArt(String table_name) {
         // SQLite's connection string
-        String url = "jdbc:sqlite:/C:/Users/Kiss/IdeaProjects/StoreP3/identifier.sqlite";
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
         try {
             // Create a connection to the database
             Connection connection = DriverManager.getConnection(url);
@@ -44,7 +54,7 @@ public class Main {
 
     public static void creatingTableCat(String table_name) {
         // SQLite's connection string
-        String url = "jdbc:sqlite:/C:/Users/Kiss/IdeaProjects/StoreP3/identifier.sqlite";
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
 
         try {
             // Create a connection to the database
@@ -70,7 +80,7 @@ public class Main {
 
     public static void creatingTableProd(String table_name) {
         // SQLite's connection string
-        String url = "jdbc:sqlite:/C:/Users/Kiss/IdeaProjects/StoreP3/identifier.sqlite";
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
 
         try {
             // Create a connection to the database
@@ -95,9 +105,10 @@ public class Main {
             System.err.println("Error: " + e.getMessage());
         }
     }
+
     public static void creatingTableLogin(String table_name) {
         // SQLite's connection string
-        String url = "jdbc:sqlite:/C:/Users/Kiss/IdeaProjects/StoreP3/identifier.sqlite";
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
 
         try {
             // Create a connection to the database
@@ -120,9 +131,10 @@ public class Main {
             System.err.println("Error: " + e.getMessage());
         }
     }
+
     public static void insertDataArt(String table_name) {
         // SQLite's connection string
-        String url = "jdbc:sqlite:/C:/Users/Kiss/IdeaProjects/StoreP3/identifier.sqlite";
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
 
         try {
             // Create a connection to the database
@@ -138,6 +150,194 @@ public class Main {
             // Close the connection
             connection.close();
 
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static void insertDataCat(String table_name) {
+        // SQLite's connection string
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
+
+        try {
+            // Create a connection to the database
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Connected to SQLite database.");
+
+            // Create a statement
+            String sql = "INSERT INTO " + table_name + " (denumire) VALUES ('Telefoane');";
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+
+            System.out.println("Data inserted successfully.");
+            // Close the connection
+            connection.close();
+
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static void insertDataProd(String table_name) {
+        // SQLite's connection string
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
+
+        try {
+            // Create a connection to the database
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Connected to SQLite database.");
+
+            // Create a statement
+            String sql = "INSERT INTO " + table_name + " (nume, email, varsta) VALUES ('Gerald', 'gerald25@gmail.com', 20);";
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+            System.out.println("Data inserted successfully.");
+            // Close the connection
+            connection.close();
+
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static void insertDataLogin(String table_name) {
+        // SQLite's connection string
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
+
+        try {
+            // Create a connection to the database
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Connected to SQLite database.");
+
+            // Create a statement
+            String sql = "INSERT INTO " + table_name + " (email, parola) VALUES ('gerald25@gmail.com', '1234');";
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+            System.out.println("Data inserted successfully.");
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static void deleteDataArt(String table_name) {
+        // SQLite's connection string
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
+        try {
+            // Create a connection to the database
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Connected to SQLite database.");
+            // Create a statement
+            String sql = "DELETE FROM " + table_name;
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+            System.out.println("Data deleted successfully.");
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static void deleteDataCat(String table_name) {
+        // SQLite's connection string
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
+        try {
+            // Create a connection to the database
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Connected to SQLite database.");
+            // Create a statement
+            String sql = "DELETE FROM " + table_name;
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+            System.out.println("Data deleted successfully.");
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static void deleteDataProd(String table_name) {
+        // SQLite's connection string
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
+        try {
+            // Create a connection to the database
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Connected to SQLite database.");
+            // Create a statement
+            String sql = "DELETE FROM " + table_name + " WHERE id_producator = 1;";
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+            System.out.println("Data deleted successfully.");
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static void deleteDataLogin(String table_name) {
+        // SQLite's connection string
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
+        try {
+            // Create a connection to the database
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Connected to SQLite database.");
+            // Create a statement
+            String sql = "DELETE FROM " + table_name;
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+            System.out.println("Data deleted successfully.");
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+    public static void editDataArt(String table_name) {
+        // SQLite's connection string
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
+        try {
+            // Create a connection to the database
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Connected to SQLite database.");
+            // Create a statement
+            String sql = "UPDATE " + table_name + " SET stoc = 20 WHERE id_articol = 10;";
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+            System.out.println("Data edited successfully.");
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+    public static void editDataCat(String table_name) {
+        // SQLite's connection string
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
+        try {
+            // Create a connection to the database
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Connected to SQLite database.");
+            // Create a statement
+            String sql = "UPDATE " + table_name + " SET denumire = 'Baterie' WHERE id_categorie = 1;";
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+            System.out.println("Data edited successfully.");
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+    public static void editDataProd(String table_name) {
+        // SQLite's connection string
+        String url = "jdbc:sqlite:/C:/MyStore/ProiectP3/identifier.sqlite";
+        try {
+            // Create a connection to the database
+            Connection connection = DriverManager.getConnection(url);
+            System.out.println("Connected to SQLite database.");
+            // Create a statement
+            String sql = "UPDATE " + table_name + " SET nume = 'Andrei' WHERE id_producator = 1;";
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+            System.out.println("Data edited successfully.");
+            connection.close();
         } catch (SQLException e) {
             System.err.println("Error: " + e.getMessage());
         }
